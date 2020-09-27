@@ -1,0 +1,124 @@
+.songContainer{
+  background-color: rgba(247, 194, 247, 0.5);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+.songContainer .circle{
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 50%;
+  background-color: white;
+  z-index: 99
+}
+.songContainer .needle{
+  width: 192rpx;
+  height: 274rpx;
+  position: relative;
+  left: 58rpx;
+  top: -36rpx;
+  z-index: 98;
+  transform: rotateZ(-20deg);/*z轴旋转，也就是不翻转，在平面旋转*/
+  transform-origin: 40rpx 0;/*设置旋转元素的基点位置*/
+  transition: transform 1s;
+}
+.songContainer.playing .needle{
+  transform:rotateZ(0deg);
+}
+.songContainer .discContainer{
+  position: relative;
+  width:598rpx;
+  height:598rpx;
+  top:-180rpx;
+  animation: rotateDisc 6s linear infinite;
+  animation-play-state: paused
+}
+.songContainer.playing .discContainer{
+  animation-play-state: running
+}
+
+@keyframes rotateDisc{
+  /* 
+    from,to 
+    百分比0%,50%,100%
+  */
+  from{
+    transform: rotateZ(0deg)
+  }
+  to{
+    transform: rotateZ(360deg)
+  }
+}
+.songContainer .discContainer .disc{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  z-index: 97;
+}
+.songContainer .discContainer .discImg{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 370rpx;
+  height: 370rpx;
+  z-index: 96;
+}
+.musicControl{
+  position: absolute;
+  bottom: 40rpx;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid #fff;
+}
+.musicControl text{
+  font-size: 50rpx;
+  height: 120rpx;
+  line-height: 120rpx;
+  /* text-align: center */
+  color: red
+}
+.musicControl text.big{
+  font-size: 80rpx
+}
+
+/* 进度条区域 */
+.audioContainer{
+  position: absolute;
+  bottom:200rpx;
+  display:flex;
+  width:640rpx;
+  height:80rpx;
+  line-height: 80rpx;
+}
+
+.audioContainer .barContainer{
+  position: relative;
+  top:40rpx;
+  width:450rpx;
+  height:4rpx;
+  margin:0 20rpx;
+  background-color:rgba(0,0,0,.4);
+}
+
+.audioContainer .barContainer .currentBar{
+  position: relative;
+  height:100%;
+  background: red;
+}
+
+.audioContainer .barContainer .currentBar .point{
+  position: absolute;
+  top:-4rpx;
+  right:0;
+  width:12rpx;
+  height:12rpx;
+  background: white;
+  border-radius: 50%;
+
+}

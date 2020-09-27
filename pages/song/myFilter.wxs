@@ -1,0 +1,20 @@
+//只能使用ES5语法
+//不能引入js文件
+function timeFilter(time,type){
+  if(type ==='ms'){
+    time = time/1000
+  }
+  var min = Math.floor(time/60)
+  var sec = Math.floor(time%60)
+  if(min < 10){
+    min = '0' + min
+  }
+  if(sec <10){
+    sec = '0' + sec
+  }
+  return min + ":" + sec
+}
+
+module.exports = {
+  timeFilter:timeFilter
+}

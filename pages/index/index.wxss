@@ -1,0 +1,100 @@
+
+.indexContainer .bannerSwiper .swiperImg{
+  width: 100%;
+  height: 100%;
+}
+.indexContainer .nav{
+  display: flex
+}
+.indexContainer .nav .navItem{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+}
+.indexContainer .nav .navItem .iconfont{
+  font-size: 50rpx;
+  background-color: rgb(240, 19, 19);
+  color: white;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  line-height: 100rpx;
+  text-align: center;
+  margin: 20rpx 0;
+}
+.indexContainer .nav .navItem text{
+  font-size: 28rpx;
+}
+.indexContainer .recommendContent{
+  padding: 0 20rpx
+}
+
+.recommendContent .scrollContent{
+  display: flex;
+  padding-top:20rpx;
+  height: 355rpx;
+  /* padding: 20rpx */
+}
+.recommendContent .scrollContent .scrollItem{
+  width: 200rpx;
+  margin-right: 20rpx;
+}
+.recommendContent .scrollContent .scrollItem image{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 10rpx;
+}
+.recommendContent .scrollContent .scrollItem text{
+  display: -webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+/* 排行榜区域 */
+.topContainer{
+  padding:0 20rpx;
+}
+
+.topContainer .topSwiper{
+  height:470rpx;
+}
+
+.topContainer .topSwiper .topItem{
+  background: #fbfbfb;
+  width:96%;
+  border-radius:10rpx;
+}
+
+.topContainer .topSwiper .topItem .topTitle{
+  font-size:26rpx;
+  padding-bottom: 20rpx;
+}
+
+.topContainer .topSwiper .topItem .topContent{
+  display:flex;
+  align-items: center;
+  height:100rpx;
+  margin:20rpx 0;
+}
+
+.topContainer .topSwiper .topItem .topContent .topImg{
+  width:100rpx;
+  height:100rpx;
+  border-radius: 10rpx;
+  flex-shrink: 0;
+}
+
+.topContainer .topSwiper .topItem .topContent .topNum{
+  width:100rpx;
+  height:100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  flex-shrink: 0;
+}
+
+.topContainer .topSwiper .topItem .topContent .topName{
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

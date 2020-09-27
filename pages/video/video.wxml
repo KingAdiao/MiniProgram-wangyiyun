@@ -1,0 +1,62 @@
+<view class="videoContainer">
+  <!-- 头部搜索区域 -->
+  <view class="header">
+    <image src="/static/images/video/video.jpg"></image>
+    <input type="text" placeholder="光辉岁月" placeholder-class="placeholder"></input>
+    <image src="/static/images/logo.png"></image>
+  </view>
+
+  <!-- 导航栏区域 -->
+  <scroll-view class="navScroll" 
+    enable-flex
+    scroll-into-view='video{{currentId}}' 
+    scroll-with-animation
+    scroll-x>
+    <view id='video{{item.id}}' class="navItem {{currentId === item.id ? 'active' : ''}}" wx:for='{{navList}}' data-id='{{item.id}}' wx:key='id' bindtap="changeId">
+      <text>{{item.name}}</text>
+    </view>
+  </scroll-view>
+
+  <!-- videoList区域 -->
+  <scroll-view class="videoList" 
+  scroll-y
+  refresher-enabled
+  refresher-triggered='{{trigger}}'
+  bindrefresherrefresh='refresherRefresh'
+  bindscrolltolower='scrollToLower'
+  >
+    <view class="videoItem" wx:for='{{videoList}}' wx:key='vid'>
+      <video class="common" bindplay="handlePlay" 
+      src="{{item.data.urlInfo.url}}"
+      poster="{{item.data.coverUrl}}"
+      wx:if='{{videoId === item.data.vid}}'
+      id="{{item.data.vid}}"
+      ></video>
+      <image class="common" src="{{item.data.coverUrl}}"
+      bindtap="changeVideoId"
+      wx:else
+      id="{{item.data.vid}}"
+      ></image>
+      <view class="content">{{item.data.title}}</view>
+      <view class="footer">
+        <image class="avatar" src="{{item.data.creator.avatarUrl}}"></image>
+        <text class="nickName">{{item.data.creator.nickname}}</text>
+        <view class="comments_praised">
+          <text class="item">
+            <text class="iconfont icon-buoumaotubiao15"></text>
+            <text class="count">{{item.data.commentCount}}</text>
+          </text>
+          <text class="item">
+            <text class="iconfont icon-pinglun1"></text>
+            <text class="count">{{item.data.shareCount}}</text>
+          </text>
+          <button class="item btn" open-type="share" data-title="{{item.data.title}}"
+          data-imageUrl='{{item.data.coverUrl}}'
+          >
+            <text class="iconfont icon-gengduo"></text>
+          </button>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
